@@ -1,0 +1,16 @@
+**/.idea/**
+*.iml
+*.eml
+*.iws
+*.ipr
+**/.gradle/**
+**/build/**
+**/out/**
+**/install/**
+*.project
+*.classpath
+**/.settings/**
+*.log
+**/target/**
+projectFilesBackup**/**
+algorithms.userlibraries
