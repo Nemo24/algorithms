@@ -41,8 +41,10 @@ public class AllStringSWithKAlphabets {
   }
 
   public static void main(String[] args) {
-    String[] kArr = {"a","b","c"};
-    AllStringSWithKAlphabets mm = new AllStringSWithKAlphabets(kArr,3);
-    mm.k_string();
+    //String[] kArr = {"a","b","c"};
+    //AllStringSWithKAlphabets mm = new AllStringSWithKAlphabets(kArr,3);
+    //mm.k_string();
+    String s = "hello";
+    System.out.println(s.substring(5));
   }
 }
