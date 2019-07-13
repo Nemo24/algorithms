@@ -2,21 +2,21 @@ public class EditDistance {
     String s1;
     String s2;
 
-    Integer[][] matrix =null;
+    int[][] matrix =null;
   public EditDistance(String s1, String s2) {
     this.s1 = s1;
     this.s2 = s2;
-    matrix = new Integer[s1.length()+1][s2.length()+1];
+    matrix = new int[s1.length()+1][s2.length()+1];
   }
 
   public int getDistance() {
     populateDP();
-    MatrixPrinter.printMatrix(matrix);
+    PrintHelper.printIntMatrix(matrix);
     return matrix[s1.length()][s2.length()];
   }
 
   private void populateDP(){
-    matrix = new Integer[s1.length()+1][s2.length()+1];
+    matrix = new int[s1.length()+1][s2.length()+1];
     for (int i = 0; i <= s2.length(); i++) {
       matrix[0][i] = i;
     }
@@ -52,5 +52,6 @@ public class EditDistance {
     EditDistance.editDistance("benyam","ephrem");
     EditDistance.editDistance("abc","ac");
     EditDistance.editDistance("abcdef","azced");
+    EditDistance.editDistance("blyte","bytel");
   }
 }
