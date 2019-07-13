@@ -1,7 +1,6 @@
 package puzzles;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -41,7 +40,7 @@ public class CrossWord {
     return perms;
   }
 
-  private void permWords(List<List<String>> perms,List<String> accum,List<String> words) {
+  public void permWords(List<List<String>> perms,List<String> accum,List<String> words) {
     if (words.size() == 0) {
       perms.add(accum.stream().collect(Collectors.toList()));
       return ;
@@ -159,32 +158,10 @@ public class CrossWord {
     return to;
   }
   public static void main(String[] args) throws Exception{
- /*     char[][] matrix = {
-          {'+','-','+','+','+','+','+','+','+','+'},
-          {'+','-','+','+','-','+','+','+','+','+'},
-          {'+','-','-','-','-','-','-','-','+','+'},
-          {'+','-','+','+','-','+','+','+','+','+'},
-          {'+','-','+','+','-','+','+','+','+','+'},
-          {'+','-','+','+','-','+','+','+','+','+'},
-          {'+','+','+','+','-','+','+','+','+','+'},
-          {'+','+','+','+','-','+','+','+','+','+'},
-          {'+','+','+','+','+','+','+','+','+','+'},
-          {'-','-','-','-','-','-','-','-','-','-'}
-      };
-    String[] words = { "CALIFORNIA","NIGERIA","CANADA","TELAVIV"};
-    //printMat(matrix);
-    CrossWord crossWord = new CrossWord(matrix);*//*
-    for (String word : words) {
-      crossWord.placeWord(word,matrix);
-    }
-    printMat(matrix);*//*
-    List<String> wordList = Arrays.asList(words);
-    char[][] result = crossWord.result(wordList,matrix);
-    printMat(result);*/
-
     CrossWordHelper crossWordHelper = new CrossWordHelper("/Users/manoharm/mm-personal/learning/algorithms/src/main/resources/crosswordinput/small/in/input3.txt",10);
     char[][] matrix = crossWordHelper.matrix;
     List<String> wordList = crossWordHelper.words;
+
     printMat(matrix);
     CrossWord crossWord = new CrossWord(matrix);
     char[][] result = crossWord.result(wordList,matrix);
