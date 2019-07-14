@@ -51,6 +51,7 @@ public class EditDistance {
     EditDistance.editDistance("hello","halo");
     EditDistance.editDistance("benyam","ephrem");
     EditDistance.editDistance("abc","ac");
+    EditDistance.editDistance("abc","abcd");
     EditDistance.editDistance("abcdef","azced");
     EditDistance.editDistance("blyte","bytel");
   }

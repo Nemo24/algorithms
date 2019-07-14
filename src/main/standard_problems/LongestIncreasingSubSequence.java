@@ -74,6 +74,8 @@ public class LongestIncreasingSubSequence {
         LongestIncreasingSubSequence.LIS(arr1);
         int[] arr2 = {2, 7 , 3 , 4 , 9 , 8 , 12};
         LongestIncreasingSubSequence.LIS(arr2);
+        int[] arr3 = {10,22,9,33,21,50,41,60,80};
+        LongestIncreasingSubSequence.LIS(arr3);
     }
 
 
