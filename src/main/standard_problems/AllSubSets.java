@@ -1,19 +1,18 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Sublist {
+public class AllSubSets {
 
-  public static List<Set<String>> subList(ArrayList<String> names) {
+  public static List<Set<String>> subSets(ArrayList<String> names) {
     List<Set<String>> result = new ArrayList<>();
-    subList(names,result,new HashSet<>());
+    subSets(names,result,new HashSet<>());
     return result;
   }
 
-  private static void subList(ArrayList<String> names,List<Set<String>> result, Set<String> chosen) {
-    System.out.println(String.format(" in subList names %s chosen %s",names , chosen));
+  private static void subSets(ArrayList<String> names,List<Set<String>> result, Set<String> chosen) {
+    System.out.println(String.format(" in subSets names %s chosen %s",names , chosen));
     if (names.isEmpty()) {
       Set<String> copySet = new HashSet<>();
       chosen.forEach(i -> copySet.add(i));
@@ -22,9 +21,9 @@ public class Sublist {
     }
 
     String remove = names.remove(0);
-    subList(names,result,chosen);
+    subSets(names,result,chosen);
     chosen.add(remove);
-    subList(names,result,chosen);
+    subSets(names,result,chosen);
     chosen.remove(remove);
     names.add(remove);
 
@@ -37,7 +36,7 @@ public class Sublist {
     for (String name : names) {
       list.add(name);
     }
-    List<Set<String>> subset = subList(list);
+    List<Set<String>> subset = subSets(list);
     System.out.println(subset);
   }
 }

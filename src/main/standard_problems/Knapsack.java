@@ -57,10 +57,12 @@ public class Knapsack {
   public static void main(String[] args) {
     int[] weight = {2,3,4,5};
     int[] value = {3,4,5,6};
-    int maxCapacity = 5;
+    int maxCapacity = 6;
     Knapsack knapsack = new Knapsack(weight,value,maxCapacity);
     //int max = knapsack.getMaxValueGeeksSol();
     int max = knapsack.getMaxValue();
     System.out.println("Max value = " +max);
+
+    PrintHelper.printIntMatrix(knapsack.dpTable);
   }
 }
