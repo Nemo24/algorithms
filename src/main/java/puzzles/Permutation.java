@@ -21,6 +21,20 @@ public class Permutation {
 
     public static void main(String[] args) {
         Permutation mm = new Permutation();
-        mm.permutation("hello");
+       // mm.permutation("hello");
+        perm("hello",new StringBuilder());
+    }
+
+    public static void perm(String s , StringBuilder builder) {
+        if (s.length()==0) {
+            System.out.println(builder.toString());
+            return;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            builder.append(s.charAt(i));
+            int length = builder.length();
+            perm(s.substring(0,i)+ s.substring(i+1),builder);
+            builder.deleteCharAt(length-1);
+        }
     }
 }
