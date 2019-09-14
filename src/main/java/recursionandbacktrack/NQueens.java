@@ -18,6 +18,15 @@ public class NQueens {
     for (int i = 0; i < size; i++) {
        if (board.isSafe(i,col)) {
          board.placeQueen(i,col);
+         try {
+           Thread.sleep(1000l);
+           board.printBoard();
+           System.out.println();
+           System.out.println();
+           System.out.println();
+         } catch (InterruptedException e) {
+           e.printStackTrace();
+         }
          if (findPath(col+1)) {
            return true ;
          }
@@ -29,7 +38,7 @@ public class NQueens {
   }
 
   public static void main(String[] args) {
-    NQueens nQueens = new NQueens(5);
+    NQueens nQueens = new NQueens(8);
     nQueens.findPath();
   }
 }
