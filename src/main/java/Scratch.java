@@ -1,36 +1,55 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Scratch {
-    public static int findLength(String str) {
-      int windowStart = 0;
-      int maxLength = 0;
-      Map<Character,Integer> charMap = new HashMap();
-      for (int windowEnd = 0;windowEnd< str.length();windowEnd++) {
-        char currentChar = str.charAt(windowEnd);
-        if (charMap.containsKey(currentChar)) {
-          int index = charMap.get(currentChar);
-          charMap.remove(currentChar);
-          windowStart = Math.max(windowStart, index + 1);
-        }
-        charMap.put(currentChar,windowEnd);
-        maxLength = Math.max(windowEnd - windowStart + 1, maxLength);
+import java.util.*;
+
+class Scratch {
+
+  public static List<List<Integer>> findPermutations(int[] nums) {
+    List<List<Integer>> result = new ArrayList<>();
+    ArrayList<Integer> current =new ArrayList<>();
+    perm(nums,result,current);
+    return result;
+  }
+  
+  public static void perm(int[] nums,List<List<Integer>> result , ArrayList<Integer> current) {
+    System.out.println("nums"+ nums.length + "current " + current);
+    if (nums.length == 0) {
+      ArrayList<Integer> currentCopy = new ArrayList<>();
+      for (int c : current) {
+        currentCopy.add(c);
       }
-      return maxLength;
+      result.add(currentCopy);
+      return;
+      
     }
 
-    public static void main(String[] args) {
-      System.out.println("Length of the longest substring: " + findLength("aabccbb"));
-      System.out.println("Length of the longest substring: " + findLength("abbbb"));
-      System.out.println("Length of the longest substring: " + findLength("abccde"));
-      System.out.println("Length of the longest substring: " + findLength("abbbcdeabbba"));
-      System.out.println("Length of the longest substring: " + findLength("abcabcd"));
-      /** mm output
-       Length of the longest substring: 3
-       Length of the longest substring: 2
-       Length of the longest substring: 3
-       Length of the longest substring: 4
-       **/
+    for (int i = 0; i < nums.length; i++) {
+      int[] restOfArray = restOfArray(nums,i);
+      //choose
+      current.add(nums[i]);
+      //explore
+      perm(restOfArray,result,current);
+      //unchoose
+      current.remove(current.size()-1);
     }
+  }
 
+  public static int[] restOfArray(int[] nums,int index) {
+    int[] rest = new int[nums.length -1];
+    int i = 0,j=0;
+    while ( i < rest.length) {
+      if (j!=index) {
+        rest[i]  = nums[j];
+        i++;
+      }
+      j++;
+    }
+    return rest;
+  }
+
+  public static void main(String[] args) {
+    List<List<Integer>> result = Scratch.findPermutations(new int[] { 1, 2,3,4 });
+    System.out.print("Here are all the permutations: " + result);
+  }
 }
