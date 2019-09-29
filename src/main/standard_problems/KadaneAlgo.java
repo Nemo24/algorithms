@@ -22,5 +22,6 @@ public class KadaneAlgo {
     int[] arr = {1,-3,2,-5,7,6,-1,-4,11,-23};
     int sum = KadaneAlgo.sum(arr);
     System.out.println("sum is "+ sum);
+
   }
 }

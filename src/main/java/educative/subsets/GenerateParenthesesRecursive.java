@@ -37,5 +37,9 @@ public class GenerateParenthesesRecursive {
 
     result = GenerateParenthesesRecursive.generateValidParentheses(3);
     System.out.println("All combinations of balanced parentheses are: " + result);
+    System.out.println("a "+ Character.getNumericValue('a'));
+    System.out.println("z "+ Character.getNumericValue('z'));
+    System.out.println("A "+ Character.getNumericValue('A'));
+    System.out.println("Z "+ Character.getNumericValue('Z'));
   }
 }

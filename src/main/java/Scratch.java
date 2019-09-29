@@ -48,8 +48,56 @@ class Scratch {
     return rest;
   }
 
+    public static boolean isPerfectSquare(int num) {
+      if (num == 1) return true;
+      if (num == 2) return false;
+      int start = 2;
+      int end = num /2;
+
+      while (start <= end) {
+        int mid = start + (end - start)/2;
+        long sq = (long) mid * mid ;
+        System.out.println(String.format("start %s end %s mid %s sq %s",start,end,mid,sq));
+        if (sq > num) {
+          end = mid -1;
+        } else if (sq < num) {
+          start = mid + 1;
+        } else {
+          return true;
+        }
+      }
+      System.out.println(String.format("start %s end %s ",start,end));
+      return start == end;
+    }
+
+  public static List<List<String>> groupAnagrams(String[] strs) {
+    Map<String,List<String>> sortedStringMap = new HashMap();
+    for(int i = 0;i< strs.length;i++) {
+      char[] strArr = strs[i].toCharArray();
+      Arrays.sort(strArr);
+
+      String s = new String(strArr);
+      if (sortedStringMap.containsKey(s)) {
+        sortedStringMap.get(s).add(strs[i]);
+      } else {
+        List<String> list = new ArrayList<>();
+        list.add(strs[i]);
+        sortedStringMap.put(s,list);
+      }
+    }
+
+    List<List<String>> res = new ArrayList();
+    sortedStringMap.values().forEach(i -> res.add(i));
+    return res;
+  }
+
   public static void main(String[] args) {
-    List<List<Integer>> result = Scratch.findPermutations(new int[] { 1, 2,3,4 });
-    System.out.print("Here are all the permutations: " + result);
+    String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+    List<List<String>> res = groupAnagrams(strs);
+    System.out.println(res);
+
+    //List<List<Integer>> result = Scratch.findPermutations(new int[] { 1, 2,3,4 });
+    StringBuilder builder  = new StringBuilder();
+    builder.deleteCharAt(builder.length()-1);
   }
 }

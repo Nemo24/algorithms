@@ -11,6 +11,11 @@ public class LinkedList<T> {
       public Node(T data) {
           this.data = data;
       }
+
+    public Node(T data, Node next) {
+      this.data = data;
+      this.next = next;
+    }
   }
   Node head;
 
